@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.min.css">
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+  <title>Webwomen</title>
+  <meta name="description" content="Está procurando oportunidades de estágio, emprego ou bolsas de estudo? 
+      Ou até mesmo oportunidades para atender eventos de tecnologia no Brasil 
+      e ao redor do mundo?" />
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo"><img src="./assets/img/logo.svg" alt="Webwomen"></div>
+      <h2 class="title-3">Lugar de mulher é onde ela quiser!
+      </h2>
+      <p class="text-2">Está procurando oportunidades de estágio, emprego ou bolsas de estudo?
+        Ou até mesmo oportunidades para atender eventos de tecnologia no Brasil e ao redor do mundo?
+      </p>
+      <p class="text-1"><strong>Confere aqui embaixo o que temos pra você!</strong></p>
+
+      <button class="btn">Ir para a seção das vagas</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <main class="main">
+      <h1 class="title-4">Vagas</h1>
+      <section class="jobs-section">
+        <ul class="jobs-list" id="jobs">
+        </ul>
+      </section>
+
+      <aside class="aside">
+        <div class="container">
+          <h1 class="title-4">Vagas selecionadas</h1>
+
+          <div class="empty">
+            <p class="text-2">Você ainda não aplicou para nenhuma vaga</p>
+
+            <div class="empty-detail-container">
+              <span class="detail"></span>
+              <span class="detail"></span>
+              <span class="detail"></span>
+              <span class="detail"></span>
+              <span class="detail"></span>
+            </div>
+          </div>
+
+          <ul id="selected-jobs">
+          </ul>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="./pages/home/jobsData.js"></script>
+  <script src="./pages/home/index.js"></script>
+</body>
+
+</html>

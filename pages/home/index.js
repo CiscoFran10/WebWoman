@@ -53,6 +53,7 @@ function addJob(id, jobs = database()) {
 
 	showInSelected();
 	updateList();
+	buttonEventChange(id);
 
 	const jobSelectedJSON = JSON.stringify(jobsSelected());
 	localStorage.setItem("job-selected", jobSelectedJSON);
@@ -89,6 +90,7 @@ function removeFromSelected(id, jobs = jobsSelected()) {
 
 	showInSelected();
 	updateList();
+	buttonEventChange(id);
 
 	const jobDeletedJSON = JSON.stringify(newSelectedJobs);
 	localStorage.setItem("job-selected", jobDeletedJSON);
@@ -105,11 +107,39 @@ function updateList() {
 	}
 }
 
+function buttonEventChange(id) {
+	const button = document.getElementById(id);
+
+	const buttonText = ["Candidatar", "Remover candidatura"];
+
+	button.classList.toggle("active");
+
+	if (button.classList.contains("active")) {
+		button.innerText = buttonText[1];
+		button.setAttribute("onclick", `removeFromSelected(${id})`);
+	} else {
+		button.innerText = buttonText[0];
+		button.setAttribute("onclick", `addJob(${id})`);
+	}
+}
+
 function getLocalStorage() {
 	const dataInLocalStorageJSON = localStorage.getItem("job-selected");
 
 	if (dataInLocalStorageJSON !== "[]") {
 		const dataInLocalStorage = JSON.parse(dataInLocalStorageJSON);
+		const localStorageId = dataInLocalStorage.map((item) => item.id);
+		const buttons = document.querySelectorAll(".add");
+
+		for (const button of buttons) {
+			const buttonsId = button.getAttribute("id");
+
+			for (const id of localStorageId) {
+				if (+buttonsId === id) {
+					buttonEventChange(id);
+				}
+			}
+		}
 
 		setJobsSelected(dataInLocalStorage);
 		showInSelected();
